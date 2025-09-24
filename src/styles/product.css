@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h2{
+    margin:30px auto;
+    text-align: center;
+}
+.container{
+    width: 85%;
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.product-card{
+    width: 21%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: rgb(248, 241, 241);
+    padding-bottom: 15px;
+    height: max-content;
+}
+.image{
+    width: 100%;
+    height: 250px;
+    position: relative;
+
+}
+.image img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+            border-radius: 10px 10px 0 0;
+
+}
+.description{
+    display: flex;
+    flex-direction: column;
+}
+.add-to-cart{
+    background-color: rgb(25, 190, 25);
+    padding:5px 8px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    width: 70%;
+    font-size: 18px;
+    margin: auto;
+}
+.hideProductIcons{
+    display: none;
+    visibility: hidden;
+}
+.showProductIcons{
+    display: block;
+}
+.wish{
+    size: 18px;
+}
+.productIcon{
+position: absolute;
+    top: 120px;
+    /* right: 70px; */
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+.wish:hover{
+    background-color: rgb(25, 190, 25);
+    color: white;
+    border-radius: 100%;
+    width: 24px;
+}
+.title{
+    margin: 10px 0;
+    font-size: 18px;
+}
+.descr{
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.display-card{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    gap: 20px;
+    padding: 10px;
+    width: max-content;
+    height: max-content;
+    background-color: rgb(227, 227, 243);
+}
+.details-side{
+    display: flex;
+    flex-direction: column;
+    width: 140px;
+    height: max-content;
+}
+.details-side img{
+    width: 100%;
+    height: 120px;
+    display: block;
+}
+.full-image{
+    height: 100%;
+    width: 400px;
+}
+.full-image img{
+    width: 100%;
+}
