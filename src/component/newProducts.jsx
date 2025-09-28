@@ -27,7 +27,7 @@ function NewProducts({product, onAddToCart, onAddToWishlist}) {
                   onClick={() => onAddToWishlist(product)}
                 />
 
-                <img src={"../"+product.images[0]} alt={product.title} />
+                <img src={product.images[0]} alt={product.title} />
               </div>
 
               <div className="description">

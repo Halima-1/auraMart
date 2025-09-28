@@ -7,9 +7,9 @@ const product = [
     id: "1",
     color: ["Baby pink", "Light carton", "Sky blue"],
     images: [
-      "src/assets/images/lace/baby lace1.png",
-      "src/assets/images/lace/baby lace2.png",
-      "src/assets/images/lace/luxury dry lace.png",
+      "../assets/images/lace/baby lace1.png",
+      "../assets/images/lace/baby lace2.png",
+      "../assets/images/lace/luxury dry lace.png",
     ],
   },
   {
@@ -20,10 +20,10 @@ const product = [
     id: "2",
     color: ["yellow", "carton", "turqose blue", "white"],
     images: [
-      "src/assets/images/lace/royal cord lace1.png",
-      "src/assets/images/lace/royal cord lace 2.png",
-      "src/assets/images/lace/royal cord lace3.png",
-      "src/assets/images/lace/royal cord lace4.png",
+      "../assets/images/lace/royal cord lace1.png",
+      "../assets/images/lace/royal cord lace 2.png",
+      "../assets/images/lace/royal cord lace3.png",
+      "../assets/images/lace/royal cord lace4.png",
     ],
   },
   {
@@ -34,8 +34,8 @@ const product = [
     id: "3",
     color: ["carton", "white"],
     images: [
-      "src/assets/images/lace/gummy lace.png",
-      "src/assets/images/lace/transparent dry lace.png",
+      "../assets/images/lace/gummy lace.png",
+      "../assets/images/lace/transparent dry lace.png",
     ],
   },
   {
@@ -46,10 +46,10 @@ const product = [
     id: "4",
     color: ["check", "purple", "white"],
     images: [
-      "src/assets/images/lace/luxury cord lace1.png",
-      "src/assets/images/lace/luxury cord lace2.png",
-      "src/assets/images/lace/luxury cord lace3.png",
-      // "src/assets/images/lace/luxury cord lace4.png",
+      "../assets/images/lace/luxury cord lace1.png",
+      "../assets/images/lace/luxury cord lace2.png",
+      "../assets/images/lace/luxury cord lace3.png",
+      // "../assets/images/lace/luxury cord lace4.png",
     ],
   },
   {
@@ -60,10 +60,10 @@ const product = [
     id: "5",
     color: ["Red", "Black & white", "Red & white", "Red"],
     images: [
-      "src/assets/images/lace/beautiful net embroidery.png",
-      "src/assets/images/lace/beautiful net embroidery1.png",
-      "src/assets/images/lace/beautiful net embroidery2.png",
-      "src/assets/images/lace/beautiful net embroidery.png",
+      "../assets/images/lace/beautiful net embroidery.png",
+      "../assets/images/lace/beautiful net embroidery1.png",
+      "../assets/images/lace/beautiful net embroidery2.png",
+      "../assets/images/lace/beautiful net embroidery.png",
     ],
   },
   {
@@ -74,11 +74,11 @@ const product = [
     id: "6",
     color: ["", "Black", "Sky blue", "Yellow", "Rose pink"],
     images: [
-      "src/assets/images/lace/big width akoba lace.png",
-      "src/assets/images/lace/big width akoba lace1.png",
-      "src/assets/images/lace/big width akoba lace2.png",
-      "src/assets/images/lace/big width akoba lace3.png",
-      "src/assets/images/lace/big width akoba lace4.png",
+      "../assets/images/lace/big width akoba lace.png",
+      "../assets/images/lace/big width akoba lace1.png",
+      "../assets/images/lace/big width akoba lace2.png",
+      "../assets/images/lace/big width akoba lace3.png",
+      "../assets/images/lace/big width akoba lace4.png",
     ],
   },
   {
@@ -89,11 +89,11 @@ const product = [
     id: "7",
     color: ["", "Baby pink", "Black", "Lilac"],
     images: [
-      "src/assets/images/lace/exclusive naterial for women.png",
-      "src/assets/images/lace/exclusive naterial for women1.png",
-      "src/assets/images/lace/exclusive naterial for women2.png",
-      "src/assets/images/lace/exclusive naterial for women3.png",
-      "src/assets/images/lace/exclusive naterial for women4.png",
+      "../assets/images/lace/exclusive naterial for women.png",
+      "../assets/images/lace/exclusive naterial for women1.png",
+      "../assets/images/lace/exclusive naterial for women2.png",
+      "../assets/images/lace/exclusive naterial for women3.png",
+      "../assets/images/lace/exclusive naterial for women4.png",
     ],
   },
 
@@ -104,7 +104,7 @@ const product = [
     availableQuantity: [42],
     id: "8",
     color: ["", ""],
-    images: ["src/assets/images/ankara/high grade mix pattern ankara.png"],
+    images: ["../assets/images/ankara/high grade mix pattern ankara.png"],
   },
   {
     description: "high quality real wax",
@@ -114,8 +114,8 @@ const product = [
     id: "9",
     color: ["", ""],
     images: [
-      "src/assets/images/ankara/high quality real wax1.png",
-      "src/assets/images/ankara/high quality wax3.png",
+      "../assets/images/ankara/high quality real wax1.png",
+      "../assets/images/ankara/high quality wax3.png",
     ],
   },
   {
@@ -126,8 +126,8 @@ const product = [
     id: "10",
     color: [""],
     images: [
-      "src/assets/images/ankara/high quality wax.png",
-      "src/assets/images/ankara/high quality wax3.png",
+      "../assets/images/ankara/high quality wax.png",
+      "../assets/images/ankara/high quality wax3.png",
     ],
   },
   {
@@ -138,8 +138,8 @@ const product = [
     id: "11",
     color: [""],
     images: [
-      "src/assets/images/ankara/mixed pattern ankara1.png",
-      "src/assets/images/ankara/mixed pattern ankara2 .png",
+      "../assets/images/ankara/mixed pattern ankara1.png",
+      "../assets/images/ankara/mixed pattern ankara2 .png",
     ],
   },
   {
@@ -149,7 +149,7 @@ const product = [
     availableQuantity: [30],
     id: "12",
     color: [""],
-    images: ["src/assets/images/ankara/multi-pattern ankara.png"],
+    images: ["../assets/images/ankara/multi-pattern ankara.png"],
   },
   {
     description: "Royal ankara",
@@ -158,7 +158,7 @@ const product = [
     availableQuantity: [18],
     id: "13",
     color: [""],
-    images: ["src/assets/images/ankara/royal ankara1.png"],
+    images: ["../assets/images/ankara/royal ankara1.png"],
   },
 
   {
@@ -169,11 +169,11 @@ const product = [
     id: "14",
     color: [""],
     images: [
-      "src/assets/images/adire/cotton adire1.png",
-      "src/assets/images/adire/cotton adire2.png",
-      "src/assets/images/adire/cotton addire3.png",
-      "src/assets/images/adire/cotton addire4.png",
-      "src/assets/images/adire/cotton addire5.png",
+      "../assets/images/adire/cotton adire1.png",
+      "../assets/images/adire/cotton adire2.png",
+      "../assets/images/adire/cotton addire3.png",
+      "../assets/images/adire/cotton addire4.png",
+      "../assets/images/adire/cotton addire5.png",
     ],
   },
   {
@@ -183,7 +183,7 @@ const product = [
     availableQuantity: [25],
     id: "15",
     color: [""],
-    image: ["src/assets/images/adire/luxury cotton adire.png"],
+    image: ["../assets/images/adire/luxury cotton adire.png"],
   },
   {
     description: "High quality duches fabric",
@@ -193,11 +193,11 @@ const product = [
     id: "16",
     color: ["", "green", "Red", "Magenta", "Navy blue"],
     images: [
-      "src/assets/images/dutches/duches ads.jpg",
-      "src/assets/images/dutches/green bridal satin.jpg",
-      "src/assets/images/dutches/red bridal satin.jpg",
-      "src/assets/images/dutches/magenta bridal satin.jpg",
-      "src/assets/images/dutches/navy blu dutches.jpg",
+      "../assets/images/dutches/duches ads.jpg",
+      "../assets/images/dutches/green bridal satin.jpg",
+      "../assets/images/dutches/red bridal satin.jpg",
+      "../assets/images/dutches/magenta bridal satin.jpg",
+      "../assets/images/dutches/navy blu dutches.jpg",
     ],
   },
   {
@@ -208,11 +208,11 @@ const product = [
     id: "17",
     color: ["", "Off white", "light beige", "Onion", "Peach"],
     images: [
-      "src/assets/images/dutches/dutches ads.jpg",
-      "src/assets/images/dutches/off white bridal satin.jpg",
-      "src/assets/images/dutches/light beige bridal satin.jpg",
-      "src/assets/images/dutches/onion bridal satin.jpg",
-      "src/assets/images/dutches/onion color dutches.jpg",
+      "../assets/images/dutches/dutches ads.jpg",
+      "../assets/images/dutches/off white bridal satin.jpg",
+      "../assets/images/dutches/light beige bridal satin.jpg",
+      "../assets/images/dutches/onion bridal satin.jpg",
+      "../assets/images/dutches/onion color dutches.jpg",
     ],
   },
   {
@@ -223,11 +223,11 @@ const product = [
     id: "18",
     color: ["", "Maroon", "Rose pink", "Royal blue", "Tea green"],
     images: [
-      "src/assets/images/dutches/dutches style inspo.jpg",
-      "src/assets/images/dutches/dark maroon dutches.jpg",
-      "src/assets/images/dutches/pink bridal satin.jpg",
-      "src/assets/images/dutches/royal blue bridal satin.jpg",
-      "src/assets/images/dutches/light beige bridal satin.jpg",
+      "../assets/images/dutches/dutches style inspo.jpg",
+      "../assets/images/dutches/dark maroon dutches.jpg",
+      "../assets/images/dutches/pink bridal satin.jpg",
+      "../assets/images/dutches/royal blue bridal satin.jpg",
+      "../assets/images/dutches/light beige bridal satin.jpg",
     ],
   },
   {
@@ -238,11 +238,11 @@ const product = [
     id: "19",
     color: ["Black", "Red", "Rose pink", "Navy blue", "Pink"],
     images: [
-      "src/assets/images/dutches/black bridal satin.jpg",
-      "src/assets/images/dutches/off white bridal satin.jpg",
-      "src/assets/images/dutches/red bridal satin.jpg",
-      "src/assets/images/dutches/navy blu dutches.jpg",
-      "src/assets/images/dutches/pink bridal satin.jpg",
+      "../assets/images/dutches/black bridal satin.jpg",
+      "../assets/images/dutches/off white bridal satin.jpg",
+      "../assets/images/dutches/red bridal satin.jpg",
+      "../assets/images/dutches/navy blu dutches.jpg",
+      "../assets/images/dutches/pink bridal satin.jpg",
     ],
   },
   {
@@ -253,11 +253,11 @@ const product = [
     id: "20",
     color: ["Onion", "Off white", "light beige", "Onion", "Peach"],
     images: [
-      "src/assets/images/dutches/onion bridal satin.jpg",
-      "src/assets/images/dutches/off white bridal satin.jpg",
-      "src/assets/images/dutches/light beige bridal satin.jpg",
-      "src/assets/images/dutches/onion bridal satin.jpg",
-      "src/assets/images/dutches/onion color dutches.jpg",
+      "../assets/images/dutches/onion bridal satin.jpg",
+      "../assets/images/dutches/off white bridal satin.jpg",
+      "../assets/images/dutches/light beige bridal satin.jpg",
+      "../assets/images/dutches/onion bridal satin.jpg",
+      "../assets/images/dutches/onion color dutches.jpg",
     ],
   },
   {
@@ -268,11 +268,11 @@ const product = [
     id: "21",
     color: ["Mauve", "Black", "Navy blue", "Maroon", "Black"],
     images: [
-      "src/assets/images/crepe/mauve london crepe.jpg",
-      "src/assets/images/crepe/black viscose creep.jpg",
-      "src/assets/images/crepe/navy blue london crepe.jpg",
-      "src/assets/images/crepe/dark maroon london crepe.jpg",
-      "src/assets/images/crepe/black french crepe.jpg",
+      "../assets/images/crepe/mauve london crepe.jpg",
+      "../assets/images/crepe/black viscose creep.jpg",
+      "../assets/images/crepe/navy blue london crepe.jpg",
+      "../assets/images/crepe/dark maroon london crepe.jpg",
+      "../assets/images/crepe/black french crepe.jpg",
     ],
   },
 
@@ -284,11 +284,11 @@ const product = [
     id: "22",
     color: [""],
     images: [
-      "src/assets/images/crepe/floral print crepe.jpg",
-      "src/assets/images/crepe/neon multicolor crepe.jpg",
-      "src/assets/images/crepe/Pastel Pink Crepe with Embroidery.jpg",
-      "src/assets/images/crepe/dark maroon london crepe.jpg",
-      "src/assets/images/crepe/black french crepe.jpg",
+      "../assets/images/crepe/floral print crepe.jpg",
+      "../assets/images/crepe/neon multicolor crepe.jpg",
+      "../assets/images/crepe/Pastel Pink Crepe with Embroidery.jpg",
+      "../assets/images/crepe/dark maroon london crepe.jpg",
+      "../assets/images/crepe/black french crepe.jpg",
     ],
   },
   {
@@ -299,11 +299,11 @@ const product = [
     id: "23",
     color: ["Purple", "Rama Green", "Rani pink", "Red", "Peach"],
     images: [
-      "src/assets/images/crepe/Purple Crepe with Embroidery.jpg",
-      "src/assets/images/crepe/Rama Green Crepe Fabric with Embroidery.jpg",
-      "src/assets/images/crepe/Rani Pink Crepe Fabric with Embroidery.jpg",
-      "src/assets/images/crepe/Red Crepe with Embroidery.jpg",
-      "src/assets/images/crepe/Peach Crepe with Embroidery.jpg",
+      "../assets/images/crepe/Purple Crepe with Embroidery.jpg",
+      "../assets/images/crepe/Rama Green Crepe Fabric with Embroidery.jpg",
+      "../assets/images/crepe/Rani Pink Crepe Fabric with Embroidery.jpg",
+      "../assets/images/crepe/Red Crepe with Embroidery.jpg",
+      "../assets/images/crepe/Peach Crepe with Embroidery.jpg",
     ],
   },
   {
@@ -314,11 +314,11 @@ const product = [
     id: "24",
     color: ["Lilac", "Purple", "Pink"],
     images: [
-      "src/assets/images/crepe/red heart crepe1.png",
-      "src/assets/images/crepe/red heart crepe.png",
-      "src/assets/images/crepe/Rani Pink Crepe Fabric with Embroidery.jpg",
-      "src/assets/images/crepe/Red Crepe with Embroidery.jpg",
-      "src/assets/images/crepe/Peach Crepe with Embroidery.jpg",
+      "../assets/images/crepe/red heart crepe1.png",
+      "../assets/images/crepe/red heart crepe.png",
+      "../assets/images/crepe/Rani Pink Crepe Fabric with Embroidery.jpg",
+      "../assets/images/crepe/Red Crepe with Embroidery.jpg",
+      "../assets/images/crepe/Peach Crepe with Embroidery.jpg",
     ],
   },
   {
@@ -329,11 +329,11 @@ const product = [
     id: "25",
     color: [""],
     images: [
-      "src/assets/images/crepe/thick cotton crepe.png",
-      "src/assets/images/crepe/thick cotton crepe1.png",
-      "src/assets/images/crepe/thick cotton crepe2.png",
-      "src/assets/images/crepe/thick cotton crepe3.png",
-      // "src/assets/images/crepe/thick cotton crepe4.png",
+      "../assets/images/crepe/thick cotton crepe.png",
+      "../assets/images/crepe/thick cotton crepe1.png",
+      "../assets/images/crepe/thick cotton crepe2.png",
+      "../assets/images/crepe/thick cotton crepe3.png",
+      // "../assets/images/crepe/thick cotton crepe4.png",
     ],
   },
   {
@@ -344,10 +344,10 @@ const product = [
     id: "26",
     color: [""],
     images: [
-      "src/assets/images/crepe/top beautiful printed crepe.png",
-      "src/assets/images/crepe/top beautiful printed crepe1.png",
-      "src/assets/images/crepe/top beautiful printed crepe2.png",
-      "src/assets/images/crepe/top beautiful printed crepe3.png",
+      "../assets/images/crepe/top beautiful printed crepe.png",
+      "../assets/images/crepe/top beautiful printed crepe1.png",
+      "../assets/images/crepe/top beautiful printed crepe2.png",
+      "../assets/images/crepe/top beautiful printed crepe3.png",
     ],
   },
   {
@@ -358,11 +358,11 @@ const product = [
     id: "27",
     color: [""],
     images: [
-      "src/assets/images/crepe/non transparent chiffon material2.png",
-      "src/assets/images/crepe/non transparent chiffon material1.png",
-      "src/assets/images/crepe/non transparent chiffon material.png",
-      "src/assets/images/crepe/non transparent chiffon material3.png",
-      "src/assets/images/crepe/non transparent chiffon material4.png",
+      "../assets/images/crepe/non transparent chiffon material2.png",
+      "../assets/images/crepe/non transparent chiffon material1.png",
+      "../assets/images/crepe/non transparent chiffon material.png",
+      "../assets/images/crepe/non transparent chiffon material3.png",
+      "../assets/images/crepe/non transparent chiffon material4.png",
     ],
   },
   {
@@ -373,9 +373,9 @@ const product = [
     id: "28",
     color: [""],
     images: [
-      "src/assets/images/crepe/embroided crepe prin.png",
-      "src/assets/images/crepe/embroided crepe prin1.png",
-      "src/assets/images/crepe/embroided crepe prin2.png",
+      "../assets/images/crepe/embroided crepe prin.png",
+      "../assets/images/crepe/embroided crepe prin1.png",
+      "../assets/images/crepe/embroided crepe prin2.png",
     ],
   },
 ];
