@@ -59,7 +59,7 @@ console.log(user)
   
 // remove item from cart
   const removeItem = async (itemId) => {
-    const itemRef = doc(db, "users", user.uid, "cart", itemId);
+    const itemRef = doc(db, "users", user.uid, "cart", itemId.toString());
     await deleteDoc(itemRef);
   };
 

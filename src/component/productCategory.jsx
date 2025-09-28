@@ -47,7 +47,7 @@ setByCategory(product.filter(
           <h2>all category</h2>
           <div className="container">
             {byCategory.map((product) => (
-                         <ProductCard key={product.id}/>
+                         <ProductCard onAddToCart={onAddToCart} key={product.id}/>
             ))}
             ;
           </div>
@@ -57,7 +57,7 @@ setByCategory(product.filter(
       {allProducts && (
         <div className="container">
           {allProducts.map((product) => (
-                       <ProductCard product={product} key={product.id}
+                       <ProductCard onAddToCart={onAddToCart} product={product} key={product.id}
                        />
           ))}
         </div>
