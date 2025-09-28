@@ -41,3 +41,26 @@ input {
     color: white;
     width: 40%;
 }
+
+.google {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    background-color: rgb(30, 101, 206);
+    color: white;
+    border: none;
+    padding: 7px 0;
+    padding-left: 6px;
+
+}
+
+.google img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.google b {
+    margin: 0;
+}

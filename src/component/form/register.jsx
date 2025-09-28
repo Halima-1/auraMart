@@ -2,9 +2,10 @@ import { useState } from "react";
 import "./register.css"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../../config/firebase";
+import { auth, googleProvider } from "../../config/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, 
-  fetchSignInMethodsForEmail } from "firebase/auth";
+  fetchSignInMethodsForEmail, 
+  signInWithPopup} from "firebase/auth";
 import { async } from "@firebase/util";
 function Register() {
   const navigate = useNavigate()
@@ -72,35 +73,24 @@ function Register() {
 
         }
      }
-  const handleSubmit = () => {
-  //   handleValidation();
-  //   if (!errData) {
-  //     return;
-  //   }
-   
 
-    
-//     const users = localStorage.getItem("users")
-//       ? JSON.parse(localStorage.getItem("users"))
-//       : [];
+// signing in with google
+const signInWithGoogle = async() =>{
+try {
+  await signInWithPopup(auth,googleProvider)
+} catch(err){
+  console.error(err)
+}
+}
 
-//     const emailValidation = users.find((item) => item.email == formData.email);
-//     if (emailValidation) {
-//       console.log("Email Already Exist");
-//       return;
-//     }
-
-//     users.push(formData);
-// // setFormData({ ...formData, userCart });
-// // localStorage.setItem("formData", JSON.stringify(formData));
-//         localStorage.setItem(
-//           `${formData.fname}'s cart`,
-//           JSON.stringify(formData.cart)
-//         );
-// localStorage.setItem("users", JSON.stringify(users));
-//           navigate("/login", { replace: true });
-
-  };
+// sign out function
+const logOut = async() =>{
+  try {
+    await signOut(auth)
+  } catch(err){
+    console.error(err)
+  }
+}
   return (
     <div className="register-container">
       {/* <p>{user.name}</p>
@@ -133,22 +123,7 @@ function Register() {
           placeholder="email"
           onChange={handleChange}
         />
-        {/* {errData.email && <p style={{ color: "red" }}>{errData.email}</p>}
-        <input
-          type="text"
-          name="username"
-          value={formData.username}
-          placeholder="username"
-          onChange={handleChange}
-        />
-        {errData.username && <p style={{ color: "red" }}>{errData.username}</p>}
-        <input
-          type="tel"
-          name="phone"
-          value={formData.phone}
-          placeholder="Phone Number"
-          onChange={handleChange}
-        /> */}
+       
         {errData.phone && <p style={{ color: "red" }}>{errData.phone}</p>}
         <input
           type="password"
@@ -171,6 +146,12 @@ function Register() {
         </p>
         <input className="submit-btn" type="button" onClick={signIn} value={"Sign up"} />
       </form>
+
+      <button className='google' onClick={signInWithGoogle}>
+                    <b>Sign up with google</b> <br />
+                    <img src="../../src/assets/google logo.png" alt="google logo" />                   
+                </button>
+                {/* <button onClick={logOut}>sign out</button> */}
     </div>
   );
 }

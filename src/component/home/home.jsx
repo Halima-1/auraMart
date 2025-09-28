@@ -6,17 +6,11 @@ function Home() {
     <main>
       <section className="banner">
         <div className="banner-text">
-          <h1>
-            Discover a world of premium fabrics and textiles at{" "}
+          <h2>
+            Discover a world of premium fabrics and textiles at
             <span>Fabric city</span>, your one-stop shop for all your sewing and
-            crafting needs. Explore a vast range of fabrics, including exclusive
-            designs and latest trend.
-          </h1>
-          <p>
-            We pride ourselves on offering only only the highest quality
-            materials sourced from trusted suppliers.
-          </p>
-
+            crafting needs. 
+          </h2>
           <button className="explore-btn">
             <Link to="/productPage" className="browse-btn">
               <b>
@@ -41,9 +35,9 @@ function Home() {
         </div>
       </section>
       <section className="product-show">
-        <Link to="/product" className="browse-btn">
+        {/* <Link to="/product" className="browse-btn">
           Browse more fabrics
-        </Link>
+        </Link> */}
         <p>
           Browse our collections and let the fabrics inspire your imagination.
         </p>
