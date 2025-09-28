@@ -1,8 +1,9 @@
 import { BsCart3, BsStar } from "react-icons/bs";
 import { BiHeart } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import ProductCard from "./productCard";
 
-function NewProducts({product, onAddToCart, onAddToWishlist}) {
+function NewProducts({product}) {
   const route = useNavigate()
     return (
       <>
@@ -10,41 +11,7 @@ function NewProducts({product, onAddToCart, onAddToWishlist}) {
           .sort((a, b) => a.index - b.index)
           .slice(5, 9)
           .map((product) => (
-            <div
-              key={product.id}
-              className="product-card"
-              onAddToCart={onAddToCart}
-              onAddToWishlist={onAddToWishlist}
-            >
-              <div
-                className="image"
-                onClick={() => {
-                  route(`/productDetails/${product.id}`);
-                }}
-              >
-                <BiHeart
-                  className="wish"
-                  onClick={() => onAddToWishlist(product)}
-                />
-
-                <img src={product.image} alt={product.title} />
-              </div>
-
-              <div className="description">
-                <p className="descr">{product.description}</p>
-                <div>
-                  <p className="price">{product.price}</p>
-                  <p className="title">{product.availableQuantity}</p>
-                </div>
-                <div className="rating"></div>
-                <button
-                  className="add-to-cart"
-                  onClick={() => onAddToCart(product)}
-                >
-                  Add to cart
-                </button>
-              </div>
-            </div>
+            < ProductCard  product={ product} key={product.id}/>
           ))}
       </>
     );

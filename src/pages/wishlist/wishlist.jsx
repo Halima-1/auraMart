@@ -39,14 +39,14 @@ const Wishlist = () => {
               <>
                 <div id="productDetails">
                   {wishList.map((item) => (
-                    <div id="aboutItem" key={item.image}>
+                    <div id="aboutItem" key={item.images[0]}>
                       <div
                         className="product"
                         onClick={() => {
                           route(`/productDetails/${item.id}`);
                         }}
                       >
-                        <img src={item.image} alt="" />
+                        <img src={item.images[0]} alt="" />
                       </div>
                       <div className="about">
                         <div className="desc"></div>

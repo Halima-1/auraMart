@@ -1,29 +1,47 @@
  import { BsCart3 } from "react-icons/bs";
-//  import Product from "./pages/productPage";
-
+ import { BiHeart } from "react-icons/bi";
+ import { useNavigate } from "react-router-dom";
  
- function ProductCard(product) {
+ function ProductCard({product, onAddToCart, onAddToWishlist}) {
+  console.log(product)
     return (
       <>
         
-        <div key={index} id="container">
-          <div id="productCard">
-            <div id="image">
-              <img src="" alt="" />
-            </div>
-            <BsCart3 />
+        <div
+              key={product.id}
+              className="product-card"
+              onAddToCart={onAddToCart}
+              onAddToWishlist={onAddToWishlist}
+            >
+              <div
+                className="image"
+                onClick={() => {
+                  route(`/productDetails/${product.id}`);
+                }}
+              >
+                <BiHeart
+                  className="wish"
+                  onClick={() => onAddToWishlist(product)}
+                />
 
-            <div id="description">
-              <p id="title">{item.title}</p>
-              <p id="descr">{item.description.slice(1, 30)}</p>
-              <div>
-                <p id="newP"></p>
-                <p id="discountedP"></p>
+                <img src={product.images} alt={product.title} />
               </div>
-              <div className="rating"></div>
+
+              <div className="description">
+                <p className="descr">{product.description.slice(0,30)+"..."}</p>
+                <div>
+                  <p className="price">{product.price}</p>
+                  <p className="title">{product.availableQuantity}</p>
+                </div>
+                <div className="rating"></div>
+                <button
+                  className="add-to-cart"
+                  onClick={() => onAddToCart(product)}
+                >
+                  Add to cart
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
       </>
     );
   }

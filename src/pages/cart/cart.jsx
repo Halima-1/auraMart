@@ -158,15 +158,15 @@ console.log(user)
             <>
               <div id="productDetails">
                 {cart.map((item) => (
-                  <div id="aboutItem" key={item.image}>
+                  <div id="aboutItem" key={item.images[0]}>
                     <div className="product">
-                      <img src={item.image} alt="" />
+                      <img src={item.images[0]} alt="" />
                     </div>
                     <div className="about">
                       <div className="desc"></div>
                       <p>price per item: #{item.price}</p>
                       <b>price : #{item.price * item.quantity}</b>
-                      <p className="colour">colour:{item.color[0]}</p>
+                      {/* <p className="colour">colour:{item.color[0]}</p> */}
                       {/* <p id="variant">variant:</p> */}
                       <div className="quantity">
                         <div className="length">

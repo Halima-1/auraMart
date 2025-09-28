@@ -28,7 +28,7 @@ function TopRated({ product, onAddToCart, onAddToWishlist }) {
       productIcon.classList.add("hideProductIcons");
     }
   }}>
-              <img src={product.image} alt={product.title} />
+              <img src={product.images[0]} alt={product.title} />
               <div
                 className="productIcon hideProductIcons"
                 id={`product-icons${product.id}`}
