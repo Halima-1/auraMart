@@ -4,7 +4,7 @@ const product = [
     price: 20000,
     category: "lace",
     availableQuantity: [45, 60, 20],
-    id: 1,
+    id: "1",
     color: ["Baby pink", "Light carton", "Sky blue"],
     images: [
       "src/assets/images/lace/baby lace1.png",
@@ -17,7 +17,7 @@ const product = [
     price: 27000,
     category: "lace",
     availableQuantity: [40, 20, 25, 50],
-    id: 2,
+    id: "2",
     color: ["yellow", "carton", "turqose blue", "white"],
     images: [
       "src/assets/images/lace/royal cord lace1.png",
@@ -31,7 +31,7 @@ const product = [
     price: 15000,
     category: "lace",
     availableQuantity: [45, 30],
-    id: 3,
+    id: "3",
     color: ["carton", "white"],
     images: [
       "src/assets/images/lace/gummy lace.png",
@@ -43,7 +43,7 @@ const product = [
     price: 40000,
     category: "lace",
     availableQuantity: [45, 60, 20, 15],
-    id: 4,
+    id: "4",
     color: ["check", "purple", "white"],
     images: [
       "src/assets/images/lace/luxury cord lace1.png",
@@ -57,7 +57,7 @@ const product = [
     price: 20000,
     category: "lace",
     availableQuantity: [30, 60, 20, 30],
-    id: 5,
+    id: "5",
     color: ["Red", "Black & white", "Red & white", "Red"],
     images: [
       "src/assets/images/lace/beautiful net embroidery.png",
@@ -71,7 +71,7 @@ const product = [
     price: 25000,
     category: "lace",
     availableQuantity: [30, 60, 20, 30],
-    id: 6,
+    id: "6",
     color: ["", "Black", "Sky blue", "Yellow", "Rose pink"],
     images: [
       "src/assets/images/lace/big width akoba lace.png",
@@ -86,7 +86,7 @@ const product = [
     price: 33000,
     category: "lace",
     availableQuantity: [30, 60, 20, 30],
-    id: 7,
+    id: "7",
     color: ["", "Baby pink", "Black", "Lilac"],
     images: [
       "src/assets/images/lace/exclusive naterial for women.png",
@@ -102,7 +102,7 @@ const product = [
     price: 22000,
     category: "ankara",
     availableQuantity: [42],
-    id: 8,
+    id: "8",
     color: ["", ""],
     images: ["src/assets/images/ankara/high grade mix pattern ankara.png"],
   },
@@ -111,7 +111,7 @@ const product = [
     price: 30000,
     category: "ankara",
     availableQuantity: [24, 30],
-    id: 9,
+    id: "9",
     color: ["", ""],
     images: [
       "src/assets/images/ankara/high quality real wax1.png",
@@ -123,7 +123,7 @@ const product = [
     price: 24000,
     category: "ankara",
     availableQuantity: [36, 60],
-    id: 10,
+    id: "10",
     color: [""],
     images: [
       "src/assets/images/ankara/high quality wax.png",
@@ -135,7 +135,7 @@ const product = [
     price: 20000,
     category: "ankara",
     availableQuantity: [42, 30],
-    id: 11,
+    id: "11",
     color: [""],
     images: [
       "src/assets/images/ankara/mixed pattern ankara1.png",
@@ -147,7 +147,7 @@ const product = [
     price: 15000,
     category: "ankara",
     availableQuantity: [30],
-    id: 12,
+    id: "12",
     color: [""],
     images: ["src/assets/images/ankara/multi-pattern ankara.png"],
   },
@@ -156,7 +156,7 @@ const product = [
     price: 48000,
     category: "ankara",
     availableQuantity: [18],
-    id: 13,
+    id: "13",
     color: [""],
     images: ["src/assets/images/ankara/royal ankara1.png"],
   },
@@ -166,7 +166,7 @@ const product = [
     price: 25000,
     category: "adire",
     availableQuantity: [30, 60, 20, 30],
-    id: 14,
+    id: "14",
     color: [""],
     images: [
       "src/assets/images/adire/cotton adire1.png",
@@ -181,7 +181,7 @@ const product = [
     price: 38000,
     category: "adire",
     availableQuantity: [25],
-    id: 15,
+    id: "15",
     color: [""],
     image: ["src/assets/images/adire/luxury cotton adire.png"],
   },
@@ -190,7 +190,7 @@ const product = [
     price: 4500,
     category: "duches",
     availableQuantity: [32, 60, 24, 34, 23],
-    id: 16,
+    id: "16",
     color: ["", "green", "Red", "Magenta", "Navy blue"],
     images: [
       "src/assets/images/dutches/duches ads.jpg",
@@ -205,7 +205,7 @@ const product = [
     price: 5500,
     category: "duches",
     availableQuantity: [20, 42, 20, 30, 18],
-    id: 17,
+    id: "17",
     color: ["", "Off white", "light beige", "Onion", "Peach"],
     images: [
       "src/assets/images/dutches/dutches ads.jpg",
@@ -220,7 +220,7 @@ const product = [
     price: 2500,
     category: "duches",
     availableQuantity: [30, 60, 20, 30, 41],
-    id: 18,
+    id: "18",
     color: ["", "Maroon", "Rose pink", "Royal blue", "Tea green"],
     images: [
       "src/assets/images/dutches/dutches style inspo.jpg",
@@ -235,7 +235,7 @@ const product = [
     price: 2500,
     category: "duches",
     availableQuantity: [37, 60, 20, 30, 29],
-    id: 19,
+    id: "19",
     color: ["Black", "Red", "Rose pink", "Navy blue", "Pink"],
     images: [
       "src/assets/images/dutches/black bridal satin.jpg",
@@ -250,7 +250,7 @@ const product = [
     price: 12000,
     category: "duches",
     availableQuantity: [20, 42, 20, 30, 18],
-    id: 20,
+    id: "20",
     color: ["Onion", "Off white", "light beige", "Onion", "Peach"],
     images: [
       "src/assets/images/dutches/onion bridal satin.jpg",
@@ -265,7 +265,7 @@ const product = [
     price: 2500,
     category: "crepe",
     availableQuantity: [20, 42, 20, 30, 18],
-    id: 21,
+    id: "21",
     color: ["Mauve", "Black", "Navy blue", "Maroon", "Black"],
     images: [
       "src/assets/images/crepe/mauve london crepe.jpg",
@@ -281,7 +281,7 @@ const product = [
     price: 2000,
     category: "crepe",
     availableQuantity: [40, 22, 10, 30, 18],
-    id: 22,
+    id: "22",
     color: [""],
     images: [
       "src/assets/images/crepe/floral print crepe.jpg",
@@ -296,7 +296,7 @@ const product = [
     price: 5000,
     category: "crepe",
     availableQuantity: [20, 42, 20, 30, 18],
-    id: 23,
+    id: "23",
     color: ["Purple", "Rama Green", "Rani pink", "Red", "Peach"],
     images: [
       "src/assets/images/crepe/Purple Crepe with Embroidery.jpg",
@@ -311,7 +311,7 @@ const product = [
     price: 2500,
     category: "crepe",
     availableQuantity: [30, 18, 46, 30, 18],
-    id: 24,
+    id: "24",
     color: ["Lilac", "Purple", "Pink"],
     images: [
       "src/assets/images/crepe/red heart crepe1.png",
@@ -326,7 +326,7 @@ const product = [
     price: 2500,
     category: "crepe",
     availableQuantity: [30, 18, 46, 30, 18],
-    id: 25,
+    id: "25",
     color: [""],
     images: [
       "src/assets/images/crepe/thick cotton crepe.png",
@@ -341,7 +341,7 @@ const product = [
     price: 2000,
     category: "crepe",
     availableQuantity: [26, 38, 19, 30],
-    id: 26,
+    id: "26",
     color: [""],
     images: [
       "src/assets/images/crepe/top beautiful printed crepe.png",
@@ -355,7 +355,7 @@ const product = [
     price: 2200,
     category: "crepe",
     availableQuantity: [30, 18, 46, 30, 18],
-    id: 27,
+    id: "27",
     color: [""],
     images: [
       "src/assets/images/crepe/non transparent chiffon material2.png",
@@ -370,7 +370,7 @@ const product = [
     price: 4000,
     category: "crepe",
     availableQuantity: [46, 30, 18],
-    id: 28,
+    id: "28",
     color: [""],
     images: [
       "src/assets/images/crepe/embroided crepe prin.png",

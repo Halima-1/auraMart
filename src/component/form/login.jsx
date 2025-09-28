@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./register.css";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, 
+  fetchSignInMethodsForEmail } from "firebase/auth";
+import { auth } from "../../config/firebase";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
 // import { UserContext } from "../App";
 function Login() {
   // const userContext = useContext(UserContext);
@@ -11,51 +18,63 @@ function Login() {
   });
 
   const [errData, setErrData] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const value = e.target.value;
     setFormData({ ...formData, [e.target.name]: value });
   };
 
-  const newErr = {};
-  const handleValidation = () => {
-    if (formData.email == "") {
-      newErr.email = "valid email required";
-    } else if (formData.password == "" || formData.password.length < 8) {
-      newErr.password = "Invalid Password, min 8 char";
-    }
-    setErrData(newErr);
-  };
-  const handleSubmit = () => {
-    handleValidation();
-    if (!errData) {
+  const handleValidation =async () => {
+    const newErr = {};
+    setLoading(true)
+    if (!formData.email || !formData.password) {
+      newErr.notify ="⚠️ All fields are required.";
       return;
     }
-    const users = localStorage.getItem("users")
-      ? JSON.parse(localStorage.getItem("users"))
-      : [];
-    const user = users.filter((item) => item.email == formData.email);
-    console.log(formData.email);
-    const legit =
-      user[0].email == formData.email && user[0].password == formData.password
-        ? true
-        : false;
-    console.log(legit);
-    if (legit) {
-      newErr.notify = "Login successful, please wait credential";
 
-      localStorage.setItem(
-        "validatn",
-        JSON.stringify({ isLoggin: true, user: user[0] })
-      );
-      localStorage.setItem("user", JSON.stringify(user));
-      console.log("loggin successfully");
-      // userContext.setUser(user[0]);
+    try {
+      await signInWithEmailAndPassword(auth, formData.email, formData.password);
+      // alert("✅ Login successful!");
+      toast.success("Login successful! 🎉");
       navigate("/", { replace: true });
-    } else {
-      console.log("invalid credential");
-      newErr.password = "Invalid credential";
+
+    } catch (error) {
+      if (error.code === "auth/user-not-found") {
+        toast.error("⚠️ No account found with this email."); // Show Firebase error as toast
+        newErr.notify="⚠️ No account found with this email.";}
+      else if(error.code === "auth/too-many-requests") {
+        toast.error("Too many failed login attempts. Please try again later.");
+      } else if (error.code === "auth/wrong-password") {
+        toast.error('⚠️ Incorrect password. Please try again.')
+        newErr.notify ="⚠️ Incorrect password. Please try again.";
+      }
+      else if (error.code === "auth/invalid-credential") {
+        toast.error('⚠️ Invalid credentials, please try again.')
+        newErr.notify ="⚠️ Invalid credentials, please try again.";
+      }
+       else {
+        toast.error("⚠️ Login failed. Please try again.")
+        newErr.notify ="⚠️ Login failed. Please try again.";
+      }
+      console.error("Firebase login error:", error.code, error.message);
+    // alert(error.message);
+    setErrData(newErr);
+
     }
+    finally {
+      setLoading(false); // stop loading
+    }
+    
+  };
+  const handleSubmit =  () => {
+    handleValidation()
+    if (!errData) {
+      // navigate("/", { replace: true });
+      return
+    }
+    console.log(errData)
+
   };
 
   return (
@@ -70,16 +89,19 @@ function Login() {
         }}
       >
         <h2 style={{ color: "navy", marginBottom: 30 }}>Sign In</h2>
-        {errData.notify && <p style={{ color: "green" }}>{errData.notify}</p>}
-
+        {loading && <div className="spinner"></div>}
+        {/* {errData.notify && <p style={{ color: "green" }}>{errData.notify}</p>} */}
+        {/* {errData.notify && <p style={{ color: "red" }}>{errData.notify}</p>} */}
+        <ToastContainer position="top-center" autoClose={3000} />
         <input
           type="text"
           name="email"
           value={formData.email}
           placeholder="email"
           onChange={handleChange}
+          disabled={loading} // disable while loading
         />
-        {errData.email && <p style={{ color: "red" }}>{errData.email}</p>}
+        {/* {errData.email && <p style={{ color: "red" }}>{errData.email}</p>} */}
 
         <input
           type="password"
@@ -87,10 +109,13 @@ function Login() {
           value={formData.password}
           placeholder="Password"
           onChange={handleChange}
+          disabled={loading} 
+
         />
         {errData.password && <p style={{ color: "red" }}>{errData.password}</p>}
 
-        <input className="submit-btn" type="submit" value={"Sign in"} />
+        <input className="submit-btn"           disabled={loading}
+ type="button" onClick={handleSubmit} value={loading ? "Logging in..." : "Login"} />
       </form>
     </div>
   );

@@ -2,6 +2,10 @@ import { useState } from "react";
 import "./register.css"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../config/firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, 
+  fetchSignInMethodsForEmail } from "firebase/auth";
+import { async } from "@firebase/util";
 function Register() {
   const navigate = useNavigate()
     // const userCart = [];
@@ -20,51 +24,81 @@ function Register() {
     const value = e.target.value;
     setFormData({ ...formData, [e.target.name]: value });
   };
-  const handleValidation = () => {
+  const handleValidation =async()=>{
     const newErr = {};
 
-    if (formData.fname == "") {
-      newErr.fname = "name require";
-    } else if (formData.email == "") {
-      newErr.email = "valid email required";
-    } else if (formData.phone == "" || formData.phone.length < 11) {
-      newErr.phone = "Invalid phone number";
-    } else if (formData.username == "" || formData.username.length < 2) {
-      newErr.username = "Invalid username, min 2 character";
-    } else if (formData.password == "" || formData.password.length < 8) {
-      newErr.password = "Invalid Password, min 8 char";
-    } else if (formData.cpass != formData.password) {
-      newErr.cpass = "Password does not match";
-    }
-    setErrData(newErr);
-  };
+    try {
+      // check if email already exists
+      const providers = await fetchSignInMethodsForEmail(auth, formData.email);
+  
+      if (providers.length > 0) {
+        // user already exists -> log them in
+        const userCredential = await signInWithEmailAndPassword(auth, formData.email, formData.password);
+        console.log("Logged in:", userCredential.user);
+        alert("Welcome back! You are logged in.");
+        navigate("/login", { replace: true });
+      } else {
+        // new user -> create account
+        const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password, formData.phoneNumber);
+        console.log("New account created:", userCredential.user);
+        navigate("/login", { replace: true });
+      }
+    } catch (error) {
 
-  const handleSubmit = () => {
-    handleValidation();
+      if (error.code === "auth/email-already-in-use") {
+        newErr.notify="⚠️ This email is already registered. Please log in instead.";
+      } else if (error.code === "auth/invalid-email") {
+        newErr.notify ="⚠️ Please enter a valid email address.";
+      } else if (error.code === "auth/missing-password") {
+        newErr.notify ="⚠️ Please input a password.";
+      } 
+      else if (error.code === "auth/weak-password") {
+        newErr.notify ="⚠️ Password must be at least 6 characters long.";
+      } 
+      else {
+        newErr.notify ="⚠️ Something went wrong. Please try again.";
+      }
+      
+      console.error(error);
+      setErrData(newErr)
+      // alert(error.message);
+    } 
+  }
+  const signIn = (e)=>{
+    e.preventDefault()
+        handleValidation();
     if (!errData) {
-      return;
-    }
+      console.log('log in successful');
 
-    const users = localStorage.getItem("users")
-      ? JSON.parse(localStorage.getItem("users"))
-      : [];
+        }
+     }
+  const handleSubmit = () => {
+  //   handleValidation();
+  //   if (!errData) {
+  //     return;
+  //   }
+   
 
-    const emailValidation = users.find((item) => item.email == formData.email);
-    if (emailValidation) {
-      console.log("Email Already Exist");
-      return;
-    }
+    
+//     const users = localStorage.getItem("users")
+//       ? JSON.parse(localStorage.getItem("users"))
+//       : [];
 
-    users.push(formData);
-// setFormData({ ...formData, userCart });
-// localStorage.setItem("formData", JSON.stringify(formData));
-        localStorage.setItem(
-          `${formData.fname}'s cart`,
-          JSON.stringify(formData.cart)
-        );
+//     const emailValidation = users.find((item) => item.email == formData.email);
+//     if (emailValidation) {
+//       console.log("Email Already Exist");
+//       return;
+//     }
 
-localStorage.setItem("users", JSON.stringify(users));
-          navigate("/login", { replace: true });
+//     users.push(formData);
+// // setFormData({ ...formData, userCart });
+// // localStorage.setItem("formData", JSON.stringify(formData));
+//         localStorage.setItem(
+//           `${formData.fname}'s cart`,
+//           JSON.stringify(formData.cart)
+//         );
+// localStorage.setItem("users", JSON.stringify(users));
+//           navigate("/login", { replace: true });
 
   };
   return (
@@ -77,18 +111,19 @@ localStorage.setItem("users", JSON.stringify(users));
         action=""
         onSubmit={(event) => {
           event.preventDefault();
-          handleSubmit();
+          signIn();
         }}
       >
         <h2 style={({ color: "navy", marginBottom: 30 })}>Sign up</h2>
-        <input
+        {/* <input
           type="text"
           name="fname"
           id=""
           placeholder="Name"
           value={formData.fname}
           onChange={handleChange}
-        />
+        /> */}
+        {errData.notify && <p style={{ color: "red" }}>{errData.notify}</p>}
 
         {errData.fname && <p style={{ color: "red" }}>{errData.fname}</p>}
         <input
@@ -98,7 +133,7 @@ localStorage.setItem("users", JSON.stringify(users));
           placeholder="email"
           onChange={handleChange}
         />
-        {errData.email && <p style={{ color: "red" }}>{errData.email}</p>}
+        {/* {errData.email && <p style={{ color: "red" }}>{errData.email}</p>}
         <input
           type="text"
           name="username"
@@ -113,7 +148,7 @@ localStorage.setItem("users", JSON.stringify(users));
           value={formData.phone}
           placeholder="Phone Number"
           onChange={handleChange}
-        />
+        /> */}
         {errData.phone && <p style={{ color: "red" }}>{errData.phone}</p>}
         <input
           type="password"
@@ -122,19 +157,19 @@ localStorage.setItem("users", JSON.stringify(users));
           placeholder="Password"
           onChange={handleChange}
         />
-        {errData.password && <p style={{ color: "red" }}>{errData.password}</p>}
+        {/* {errData.password && <p style={{ color: "red" }}>{errData.password}</p>} */}
         <input
-          type="password"
-          name="cpass"
-          value={formData.cpass}
-          placeholder="Confirm Password"
+          type="number"
+          name="num"
+          value={formData.phoneNumber}
+          placeholder="phone number"
           onChange={handleChange}
         />
-        {errData.cpass && <p style={{ color: "red" }}>{errData.cpass}</p>}
+        {/* {errData.cpass && <p style={{ color: "red" }}>{errData.cpass}</p>} */}
         <p style={{ color: "grey" }}>
           Already have an account? <Link to={"/login"}>Sign in</Link>
         </p>
-        <input className="submit-btn" type="submit" value={"Sign up"} />
+        <input className="submit-btn" type="button" onClick={signIn} value={"Sign up"} />
       </form>
     </div>
   );

@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiHeart, BiPlus, BiUserMinus } from "react-icons/bi";
 import "./cart.css";
 import { BsApple, BsArrowRightShort, BsTrash3 } from "react-icons/bs";
 import { product } from "../../assets/productImages";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { getFirestore, doc, getDocs, deleteDoc, collection, onSnapshot, updateDoc } from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { db } from "../../config/firebase";
 console.log(product);
 
 function Cart() {
@@ -12,32 +15,74 @@ function Cart() {
   const navigate = useNavigate();
   const newErr = {};
   console.log(product);
-  const cart = JSON.parse(localStorage.getItem("user-cart")) || [];
-  // console.log(user);
+  // const cart = JSON.parse(localStorage.getItem("user-cart")) || [];
+  const [cart, setCart] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
+  const auth = getAuth();
+  const db = getFirestore();
+  // const user = auth.currentUser;
+  useEffect(() => {
+    const auth = getAuth();
+    // ✅ Listen for auth state changes
+    const unsubscribeAuth = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+      setLoading(false)
 
-  // const cart = user[0].cart || [];
+    });
 
-  // to remove item from cart;
-  // const allUsers = JSON.parse(localStorage.getItem("users"));
-  // const updateUser = allUsers.find((item) => item.email == user[0].email);
+    return () => unsubscribeAuth();
+  }, []);
+  useEffect(() => {
+    if (!user) 
+    return;
+    setLoading(true)
 
-  // console.log(updateUser);
-  function removeCart(id) {
-    const index = cart.findIndex((item) => item.id == id);
-    if (index == -1) {
-      console.log("your cart is empty");
-      console.log(index);
-    } else {
-      console.log("there is something in the cart");
-      console.log(index);
-      cart.splice(index, 1);
-      window.location.href = "cart";
-      // updateUser.cart = cart;
-      localStorage.setItem("user-cart", JSON.stringify(cart));
-      // localStorage.setItem("users", JSON.stringify(allUsers));
-    }
-  }
+    const cartRef = collection(db, "users", user.uid, "cart");
 
+    const unsubscribe = onSnapshot(cartRef, (snapshot) => {
+      const items = snapshot.docs.map(docSnap => ({
+        id: docSnap.id,   // doc id from Firestore
+        ...docSnap.data()
+      }));
+      setCart(items);
+      setLoading(false)
+
+    });
+
+    return () => unsubscribe();
+  }, [user]);
+console.log(cart)
+console.log(user)
+
+  // if (loading) return <p>Loading cart...</p>;
+  
+// remove item from cart
+  const removeItem = async (itemId) => {
+    const itemRef = doc(db, "users", user.uid, "cart", itemId);
+    await deleteDoc(itemRef);
+  };
+
+  // increase item quantity
+  const increaseQty = async (item) => {
+    const itemRef = doc(db, "users", user.uid, "cart", item.id.toString());
+    await updateDoc(itemRef, {
+      quantity: item.quantity + 1
+    });
+    console.log(item)
+  };
+
+  // decrease item quantity
+  const decreaseQty = async (item) => {
+    if (item.quantity > 1) {
+      const itemRef = doc(db, "users", user.uid, "cart", item.id.toString());
+    await updateDoc(itemRef, {
+      quantity: item.quantity - 1
+    });
+    console.log(item)
+  }};
+
+  // total price of items in cart
   const subTotal = cart.reduce((total, product) => {
     return total + product.price * product.quantity;
   }, 0);
@@ -94,7 +139,10 @@ function Cart() {
           <b>keep shopping</b>
         </div>
         <div id="cartContainer">
-          {!cart || cart.length == 0 ? (
+          {loading? <div className="spinner"></div>
+ :!user? <div className="empty-cart"><p>login to see your cart content</p>
+ <Link to= "/login">Login page</Link>
+ </div>:!cart || cart.length == 0 ? (
             <div className="empty-cart">
               <img
                 style={{ width: 150, height: 150 }}
@@ -116,23 +164,25 @@ function Cart() {
                     </div>
                     <div className="about">
                       <div className="desc"></div>
-                      <p>price per item: ${item.price}</p>
+                      <p>price per item: #{item.price}</p>
+                      <b>price : #{item.price * item.quantity}</b>
                       <p className="colour">colour:{item.color[0]}</p>
                       {/* <p id="variant">variant:</p> */}
                       <div className="quantity">
                         <div className="length">
-                          <span className="reduce">
+                          <span onClick={() =>decreaseQty(item)} className="reduce">
                             <BiUserMinus />
                           </span>
-                          <span>
-                            <BiPlus className="increment-btn" />
-                          </span>{" "}
                           <span id="quantity-${item.id}">{item.quantity}</span>
+
+                          <span>
+                            <BiPlus onClick={() =>increaseQty(item)} className="increment-btn" />
+                          </span>{" "}
                           <div className="icon">
                             {/* <BiSolidLogIn /> */}
                             <BsTrash3
                               product={product}
-                              onClick={() => removeCart(item.id)}
+                              onClick={() => removeItem(item.id)}
                             />
                             {/* <BiSolidLogInCircle /> <BiSolidLogOut /> */}
                           </div>
@@ -169,7 +219,6 @@ function Cart() {
             <div id="details">
               <p>
                 <b>Order details</b>
-                <p></p>
               </p>
               <div className="total">
                 <p id="totalItem">Total item(s): {totalCartItem}</p>
