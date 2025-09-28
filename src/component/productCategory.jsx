@@ -60,7 +60,7 @@ setByCategory(product.filter(
                 >
                   <BiHeart className="wish" onClick={ () =>OnAddToWishlist(product)} />
 
-                  <img src={product.images[0]} alt={product.title} />
+                  <img src={product.image} alt={product.title} />
                 </div>
                 <div className="description">
                   <p className="title">{product.title}</p>
@@ -100,7 +100,7 @@ setByCategory(product.filter(
               >
                 <BiHeart className="wish" />
 
-                <img src={product.images[0]} alt={""} />
+                <img src={product.image} alt={""} />
               </div>
               <div className="description">
                 <p className="title">{product.title}</p>

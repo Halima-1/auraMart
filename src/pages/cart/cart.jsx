@@ -158,9 +158,9 @@ console.log(user)
             <>
               <div id="productDetails">
                 {cart.map((item) => (
-                  <div id="aboutItem" key={item.images[0]}>
+                  <div id="aboutItem" key={item.image}>
                     <div className="product">
-                      <img src={item.images[0]} alt="" />
+                      <img src={item.image} alt="" />
                     </div>
                     <div className="about">
                       <div className="desc"></div>

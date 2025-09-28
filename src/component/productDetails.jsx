@@ -22,7 +22,7 @@ function ProductDetails() {
   const relatedProduct =product.filter(product => product.category == details[0].category)
   return (
     <Fragment>
-      <div className="display-card">
+      {/* <div className="display-card">
         {details && (
           <>
             <div className="details-side">
@@ -142,12 +142,12 @@ function ProductDetails() {
                     >
                       Add to cart
                     </button> */}
-                </div>
+                {/* </div>
               </div>
             ))}
           </div>
         </section>
-      )}
+      )} */} 
     </Fragment>
   );
 }
