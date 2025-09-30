@@ -11,8 +11,8 @@ function Home() {
       <section className="banner">
         <div className="banner-text">
           <h2>
-          ✨ Welcome to <span>AuraMart </span> 
- Your one-stop online shop for everything you need — from stylish furniture that makes your home cozy, to luxurious fragrances that define your vibe.
+          ✨ Welcome to <span> AuraMart </span> 
+ Your one-stop online shop for everything you need — from stylish furniture that makes your home cozy, to fresh groceries and luxurious fragrances that define your vibe.
           </h2>
           <p> Discover fresh groceries,
  everyday essentials, and beauty accessories that keep you glowing.</p>
