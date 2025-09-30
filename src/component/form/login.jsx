@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./register.css";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, 
   fetchSignInMethodsForEmail } from "firebase/auth";
@@ -113,7 +113,9 @@ function Login() {
 
         />
         {errData.password && <p style={{ color: "red" }}>{errData.password}</p>}
-
+        <p style={{ color: "grey" }}>
+          No account yet? <Link to={"/register"}>Sign Up</Link>
+        </p>
         <input className="submit-btn"           disabled={loading}
  type="button" onClick={handleSubmit} value={loading ? "Logging in..." : "Login"} />
       </form>

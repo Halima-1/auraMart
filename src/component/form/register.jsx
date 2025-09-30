@@ -139,18 +139,19 @@ const logOut = async() =>{
           value={formData.phoneNumber}
           placeholder="phone number"
           onChange={handleChange}
+          required
         />
         {/* {errData.cpass && <p style={{ color: "red" }}>{errData.cpass}</p>} */}
         <p style={{ color: "grey" }}>
           Already have an account? <Link to={"/login"}>Sign in</Link>
         </p>
-        <input className="submit-btn" type="button" onClick={signIn} value={"Sign up"} />
+        <input className="submit-btn" type="submit" onClick={signIn} value={"Sign up"} />
       </form>
-
+{/* 
       <button className='google' onClick={signInWithGoogle}>
                     <b>Sign up with google</b> <br />
                     <img src="../../src/assets/google logo.png" alt="google logo" />                   
-                </button>
+                </button> */}
                 {/* <button onClick={logOut}>sign out</button> */}
     </div>
   );
