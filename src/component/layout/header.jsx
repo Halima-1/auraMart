@@ -1,15 +1,27 @@
 import "./header.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { BsCart, BsCart2, BsHeart, BsMenuApp, BsMenuDown, BsTools } from "react-icons/bs";
 import { BiAccessibility, BiCarousel, BiCloset, BiHome, BiLogOut, BiMenu, BiSolidContact } from "react-icons/bi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  // localStorage.setItem("menu",false)
   const [menu, setMenu] =useState(false)
+  const location = useLocation();
+  
+    // Close sidebar whenever the path changes
+    useEffect(() => {
+      if (menu) {
+        setMenu(false);
+      }
+    }, [location.pathname,setMenu]);
+  
   const toggleSideBar =() =>{
     setMenu(!menu)
-
   }
+  console.log(menu)
   const logout = () => {
     localStorage.removeItem("user");
     navigate("/login", { replace: true });
