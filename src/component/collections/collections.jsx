@@ -20,7 +20,7 @@ function Collections() {
       }, []);
     return (
         <>
-        <section className='carousel'>
+        <section className='carousel '>
         <div className="carousel-img" style={{ textAlign: "center" }}>
       <img
         src={bestRated[currentIndex].images[0]}
@@ -46,7 +46,7 @@ function Collections() {
         </div>     
     </div>
 
-    <div style={{ marginTop: "10px", margin: "0 auto", width:"20%" }}>
+    <div style={{ marginTop: "10px", margin: "0 auto", width:"40%" }}>
         {bestRated.map((_, index) => (
           <span
             key={index}

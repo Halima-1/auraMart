@@ -89,19 +89,18 @@ function Product() {
         // onAddToWishlist={handleAddToWishlist}
         onAddToCart={handleAddToCart}
       />
-      <div className="category newest">
+      <div className="category ">
         <h2>Newest products </h2>
       </div>
-      <div className="container">
+      <div className=" marquee">
         <NewProducts
           product={product}
-          onAddToWishlist={handleAddToWishlist}
-          onAddToCart={handleAddToCart}
         />
+              </div>
+              <div className="category">
+        <h2>Our best collections </h2>
       </div>
-      <div className="container">
         <Collections product={product}/>
-      </div>
 
     
     </>

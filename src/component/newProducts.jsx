@@ -11,8 +11,27 @@ function NewProducts({product,onAddToCart}) {
           .sort((a, b) => a.index - b.index)
           .slice(5, 9)
           .map((product) => (
-            < ProductCard onAddToCart={onAddToCart}  product={ product} key={product.id}/>
-          ))}
+
+            <div
+            key={product.id}
+            className=" product-card newest" 
+            id=""
+          >
+            <div
+              className="image"
+              onClick={() => {
+                route(`/productDetails/${product.id}`);
+              }}
+            >
+              <img src={product.images[0]} alt={product.title} />
+            </div>
+
+            <div className="description">
+              <b>{product.title}</b>
+              <p className="descr">{product.description.slice(0,30)+"..."}</p>
+                <p className="price">${product.price}</p>
+            </div>
+          </div>          ))}
       </>
     );
 }

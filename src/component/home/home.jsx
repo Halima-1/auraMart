@@ -1,8 +1,10 @@
 import "./home.css";
+import "../../styles/product.css"
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import Product from "../../pages/productPage";
 import { product } from "../../assets/productImages";
+import NewProducts from "../newProducts";
 function Home() {
   return (
     <>
@@ -51,6 +53,14 @@ function Home() {
           </div>
         </div>
       </section>
+      <div className="category">
+        <h2>Latest products</h2>
+      </div>
+      <div className="container marquee">
+        <NewProducts
+          product={product}
+        />
+              </div>
       <section className="product-show">
         {/* <Link to="/product" className="browse-btn">
           Browse more fabrics
