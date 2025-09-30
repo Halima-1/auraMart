@@ -1,20 +1,26 @@
 import "./header.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import { BsCart2, BsHeart } from "react-icons/bs";
-import { BiLogOut } from "react-icons/bi";
+import { BsCart, BsCart2, BsHeart, BsMenuApp, BsMenuDown, BsTools } from "react-icons/bs";
+import { BiAccessibility, BiCarousel, BiCloset, BiHome, BiLogOut, BiMenu, BiSolidContact } from "react-icons/bi";
+import { useState } from "react";
 function Header() {
   const navigate = useNavigate();
+  const [menu, setMenu] =useState(false)
+  const toggleSideBar =() =>{
+    setMenu(!menu)
+
+  }
   const logout = () => {
     localStorage.removeItem("user");
     navigate("/login", { replace: true });
     localStorage.setItem("validatn", JSON.stringify({ isLoggin: false }));
   };
-
   return (
-    <header>
+    <>
+    {window.innerWidth >= 768? <> <header>
       <nav>
         <h2 className="nav-brand">
-          <span>Fabric</span> City
+        AuraMart
         </h2>
         <ul>
           <li>
@@ -86,8 +92,89 @@ function Header() {
           </li>
         </ul>
       </nav>
-    </header>
-  );
+    </header></>: <> <aside>
+    <nav>
+      <div>
+        {menu? <BiCarousel className="menu-icon"
+         onClick={toggleSideBar}
+         style={ {marginLeft:120}}
+         />:
+        <BiMenu className="menu-icon" 
+        onClick={toggleSideBar}
+        style={menu? {marginLeft:'50px'}: null}
+        />
+        }
+         <li>
+            <NavLink className={"mobile-cart"}
+              to={"/cart"}
+            >
+            <BsCart2 className={"menu-icon"} />
+            </NavLink>
+          </li>
+      </div>
+      <ul style={menu? {display:"block"}: {display:"none"}}>
+      <li>
+      <BiHome className="aside-icon aside-item"/>
+            <NavLink
+              className={"aside-item"}
+              to={"/"}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+          <BiAccessibility className=" aside-item aside-icon"/>
+            <NavLink
+              className={"aside-item"}
+              to={"/productPage"}
+            >
+              Products
+            </NavLink>
+          </li>
+          <li>
+          <BsCart2 className={"aside-item nav-icon aside-icon"} />
+            <NavLink className={"aside-item"}
+              to={"/cart"}
+            >
+              Cart
+            </NavLink>
+          </li>
+          <li>
+          <BsHeart className={"aside-item nav-icon aside-icon"} />
+            <NavLink
+            className={"aside-item"}
+              to={"/wishlist"}
+            >
+              Wishlist
+            </NavLink>
+          </li>
+          <li>
+          <BiSolidContact className="aside-item aside-icon"/>
+            <NavLink
+              className={"aside-item"}
+              to={"/contact"}
+            >
+              Contact
+            </NavLink>
+          </li>
+          <li>
+          <BiLogOut
+                onClick={() => logout()}
+                className={"aside-item nav-icon aside-icon"}
+              />
+            <NavLink
+            className={"aside-item"}
+              to={"/login"}
+            >
+             Logout
+            </NavLink>
+          </li>
+      </ul>
+    </nav>
+    </aside> </>
+    }
+    </>
+     );
 }
 
 export default Header;

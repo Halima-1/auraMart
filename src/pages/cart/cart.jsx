@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BiHeart, BiPlus, BiUserMinus } from "react-icons/bi";
+import { BiHeart, BiMinus, BiPlus, BiUserMinus } from "react-icons/bi";
 import "./cart.css";
 import { BsApple, BsArrowRightShort, BsTrash3 } from "react-icons/bs";
 import { product } from "../../assets/productImages";
@@ -160,38 +160,33 @@ console.log(user)
                 {cart.map((item) => (
                   <div id="aboutItem" key={item.images[0]}>
                     <div className="product">
-                      <img src={item.images[0]} alt="" />
+                      <img src={item.images[0]} alt="cart item" />
                     </div>
                     <div className="about">
-                      <div className="desc"></div>
+                    <p className="desc">{item.title}</p>
                       <p>price per item: #{item.price}</p>
                       <b>price : #{item.price * item.quantity}</b>
                       {/* <p className="colour">colour:{item.color[0]}</p> */}
-                      {/* <p id="variant">variant:</p> */}
                       <div className="quantity">
                         <div className="length">
                           <span onClick={() =>decreaseQty(item)} className="reduce">
-                            <BiUserMinus />
+                            <BiMinus />
                           </span>
-                          <span id="quantity-${item.id}">{item.quantity}</span>
+                          <span id="itemQty">{item.quantity}</span>
 
                           <span>
                             <BiPlus onClick={() =>increaseQty(item)} className="increment-btn" />
                           </span>{" "}
-                          <div className="icon">
-                            {/* <BiSolidLogIn /> */}
-                            <BsTrash3
+                            <BsTrash3 id="icon"
                               product={product}
                               onClick={() => removeItem(item.id)}
                             />
-                            {/* <BiSolidLogInCircle /> <BiSolidLogOut /> */}
-                          </div>
                         </div>
-                        <span className="list">
+                        {/* <span className="list">
                           {" "}
                           <BiHeart />
-                        </span>
-                        <span className="list">Add note</span>
+                        </span> */}
+                        {/* <span className="list">Add note</span> */}
                       </div>
                     </div>
                   </div>
@@ -201,7 +196,8 @@ console.log(user)
           )}
 
           <div className="toCheckout">
-            <div className="toGet">
+            {cart.length !== 0 ? <>
+              <div className="toGet">
               <p>
                 <b>How do you want to get your item?</b>
               </p>
@@ -248,6 +244,8 @@ console.log(user)
                 <BsArrowRightShort />
               </div>
             </div>
+            </>:null}
+           
           </div>
         </div>
       </div>

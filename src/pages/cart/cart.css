@@ -1,9 +1,10 @@
 .container {
   background-color: white;
-  width: 96%;
+  width: 100%;
   border-radius: 10px;
-  margin: auto;
+  /* margin: auto; */
   padding: 20px;
+  /* margin-top: 80px; */
 }
 
 .spinner {
@@ -27,7 +28,7 @@
 }
 
 .item {
-  width: 90%;
+  width: 100%;
   margin: auto;
   margin-bottom: 20px;
   background-color: white;
@@ -50,28 +51,28 @@ b {
 #cartContainer {
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  /* justify-content: space-between; */
   margin: 0 auto;
 }
 
 #productDetails {
   display: block;
-  width: 70%;
+  width: 100%;
 }
 
 .empty-cart {
-  width: 40%;
+  width: 80%;
   margin: auto;
   text-align: center;
 }
 
 #aboutItem {
-  width: 95%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0 auto;
+  gap: 20px;
   margin-bottom: 20px;
   border-bottom: 2px solid rgb(209, 204, 204);
   padding-bottom: 12px;
@@ -80,73 +81,78 @@ b {
 }
 
 .product {
-  width: 140px;
+  width: 120px;
   /* margin-right: 20px; */
 }
 
 .product img {
   width: 100%;
-  height: 140px;
-  border-radius: 20px;
+  height: 120px;
+  /* border-radius: 20px; */
 }
 
 .about {
-  width: 67%;
+  width: 75%;
   display: block;
   margin-top: 10px;
 }
 
-.desc {
-  width: 90%;
+/* .desc {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 10px;
-}
+  margin-bottom: 0px;
+} */
 
-.desc h3 {
+/* .desc h3 {
   font-size: 20px;
-}
+} */
 
 svg {
   width: 20px;
   height: 20px;
 }
 
-.colour,
-#variant {
-  color: rgb(163, 157, 157);
-  text-transform: capitalize;
-  font-size: 14px;
-}
-
 .quantity {
-  width: 90%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 #price {
   color: red;
 }
 
+.about p,
+b {
+  margin-bottom: 10px;
+  /* border-bottom: 2px solid navy; */
+}
+
 .length {
-  width: 28%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .length span {
-  border: 1px solid grey;
+  border: 1px solid navy;
   border-radius: 100%;
   padding: 0 2px;
-  /* padding-top: -2px; */
+  padding-top: 3px;
   font-size: 13px;
   height: fit-content;
   padding-bottom: 0px;
+
+}
+
+#itemQty {
+  padding: 5px;
+  border: none;
 }
 
 .length span:hover {
@@ -158,11 +164,12 @@ svg {
   padding: 0 5px;
 }
 
-.icon {
+#icon {
   margin-left: 15px;
+  margin-top: 5px;
 }
 
-.icon:hover {
+#icon:hover {
   color: red;
 }
 
@@ -179,7 +186,7 @@ svg {
 }
 
 .toCheckout {
-  width: 29%;
+  width: 100%;
   /* margin-top: 20px; */
 }
 
@@ -295,4 +302,306 @@ svg {
 .coupon button {
   border: none;
   background-color: white;
+}
+
+@media (min-width: 600px) {
+  .container {
+    background-color: white;
+    width: 96%;
+    border-radius: 10px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 80px;
+  }
+
+  .spinner {
+    margin: 20px auto;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .item {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #itemLength {
+    font-size: 15px;
+    color: rgb(160, 156, 156);
+    /* text-transform: capitalize; */
+  }
+
+  b {
+    text-transform: capitalize;
+    font-size: 18px;
+  }
+
+  #cartContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  #productDetails {
+    display: block;
+    width: 70%;
+  }
+
+  .empty-cart {
+    width: 40%;
+    margin: auto;
+    text-align: center;
+  }
+
+  #aboutItem {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgb(209, 204, 204);
+    padding-bottom: 12px;
+    /* margin-right: 20px; */
+    /* box-shadow: 10px 0px 0px 2px rgb(233, 230, 230); */
+  }
+
+  .product {
+    width: 140px;
+    /* margin-right: 20px; */
+  }
+
+  .product img {
+    width: 100%;
+    height: 140px;
+    border-radius: 20px;
+  }
+
+  .about {
+    width: 67%;
+    display: block;
+    margin-top: 10px;
+  }
+
+  .desc {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .desc h3 {
+    font-size: 20px;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .colour,
+  #variant {
+    color: rgb(163, 157, 157);
+    text-transform: capitalize;
+    font-size: 14px;
+  }
+
+  .quantity {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+
+  #price {
+    color: red;
+  }
+
+  .length {
+    width: 28%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .length span {
+    border: 1px solid grey;
+    border-radius: 100%;
+    padding: 0 2px;
+    /* padding-top: -2px; */
+    font-size: 13px;
+    height: fit-content;
+    padding-bottom: 0px;
+  }
+
+  .length span:hover {
+    border: 1px solid red;
+  }
+
+  #productLength {
+    border-bottom: 1px solid grey;
+    padding: 0 5px;
+  }
+
+  .icon {
+    margin-left: 15px;
+  }
+
+  .icon:hover {
+    color: red;
+  }
+
+  .list {
+    color: rgb(156, 151, 151);
+  }
+
+  .list:hover {
+    color: red;
+  }
+
+  .reduce {
+    padding: 0 3px;
+  }
+
+  .toCheckout {
+    width: 29%;
+    /* margin-top: 20px; */
+  }
+
+  .toGet {
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 1px 2px 1px 2px rgb(233, 230, 230);
+  }
+
+  .toGet p b {
+    font-size: 16px;
+    text-transform: none;
+  }
+
+  .toGet div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 14px;
+    border: 1px solid red;
+    padding: 0;
+    border-radius: 9px;
+    text-align: center;
+  }
+
+  .toGet div p {
+    padding: 7px;
+    border-radius: 0 0 0 7px;
+
+    /* margin: 7px; */
+  }
+
+  /* .toGet div:hover{
+      padding: 0;
+  } */
+  .toGet div p:hover {
+    background-color: red;
+    color: white;
+    width: 50%;
+    border-radius: 0 0 0 7px;
+    /* margin: 6px ; */
+  }
+
+  #details {
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 1px 2px 1px 2px rgb(233, 230, 230);
+  }
+
+  .details p b {
+    font-size: 14px;
+    text-transform: none;
+  }
+
+  .order {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: rgb(172, 168, 168);
+    border-bottom: 1px solid rgb(179, 174, 174);
+    margin: 10px auto;
+
+    padding-bottom: 10px;
+  }
+
+  .total {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px auto;
+    padding-bottom: 10px;
+  }
+
+  .total p {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  #checkout {
+    width: 95%;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 7px;
+    margin: 10px auto;
+    margin-left: 5px;
+  }
+
+  #checkout a {
+    font-size: 16px;
+    text-decoration: none;
+    background-color: red;
+    color: white;
+    cursor: auto;
+  }
+
+  .coupon {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px auto;
+    padding: 7px;
+    border-radius: 5px;
+    box-shadow: 3px 2px 2px 1px rgb(233, 230, 230);
+  }
+
+  .coupon button {
+    border: none;
+    background-color: white;
+  }
 }

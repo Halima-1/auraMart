@@ -1,22 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import "./checkout.css";
+import { BiLogoMastercard, BiLogoPaypal } from "react-icons/bi";
 
 function Checkout (){
     const navigate =useNavigate()
     return(
         <>
-  <main>
-        <div className="checkout-container">
-            <div>
                 <h1>Checkout</h1>
-            </div>
-            <div className="payment">
                 <div className="cardDetails">
                     <h3>Payment method</h3>
                     <div className="cards">
+                        {/* <BiLogoPaypal/>
+                        <BiLogoMastercard/> */}
                         <div><img src="../src/assets/images/card.jpg" alt=""/></div>
                     </div>
-                    <form>
+                   
+                </div>
+        <form>
                         <p>Payment details</p>
                         <input type="text" placeholder="Enter name on card" required id="name"/>
                         <input type="number" placeholder="Card number " required id="name"/>
@@ -32,10 +32,6 @@ function Checkout (){
                     </div>
                     </form>
                     
-                </div>
-            </div>
-        </div>
-    </main>
         </>
     )
 }

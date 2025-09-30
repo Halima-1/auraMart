@@ -3,7 +3,7 @@
  import { useNavigate } from "react-router-dom";
  
  function ProductCard({product, onAddToCart, onAddToWishlist}) {
-  console.log(product)
+  // console.log(product)
     return (
       <>
         
@@ -24,16 +24,13 @@
                   onClick={() => onAddToWishlist(product)}
                 />
 
-                <img src={product.images} alt={product.title} />
+                <img src={product.images[0]} alt={product.title} />
               </div>
 
               <div className="description">
+                <b>{product.title}</b>
                 <p className="descr">{product.description.slice(0,30)+"..."}</p>
-                <div>
-                  <p className="price">{product.price}</p>
-                  <p className="title">{product.availableQuantity}</p>
-                </div>
-                <div className="rating"></div>
+                  <p className="price">${product.price}</p>
                 <button
                   className="add-to-cart"
                   onClick={() => onAddToCart(product)}

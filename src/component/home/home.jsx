@@ -1,20 +1,23 @@
 import "./home.css";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
+import Product from "../../pages/productPage";
+import { product } from "../../assets/productImages";
 function Home() {
   return (
-    <main>
+    <>
       <section className="banner">
         <div className="banner-text">
           <h2>
-            Discover a world of premium fabrics and textiles at
-            <span>Fabric city</span>, your one-stop shop for all your sewing and
-            crafting needs. 
+          ✨ Welcome to <span>AuraMart </span> 
+ Your one-stop online shop for everything you need — from stylish furniture that makes your home cozy, to luxurious fragrances that define your vibe.
           </h2>
+          <p> Discover fresh groceries,
+ everyday essentials, and beauty accessories that keep you glowing.</p>
           <button className="explore-btn">
             <Link to="/productPage" className="browse-btn">
               <b>
-                Explore our fabrics <BsArrowRight className="arrow" />
+                Explore our Products <BsArrowRight className="arrow" />
               </b>{" "}
             </Link>
           </button>
@@ -22,15 +25,29 @@ function Home() {
         <div className="banner-image">
           <div>
             <img
-              src="../src/assets/images/lace/big width akoba lace.png"
+              src={product[1].images[0]}
               alt=""
             />
           </div>
           <div>
-            <img src="../src/assets/images/dutches/dutches ads.jpg" alt="" />
+            <img 
+              src={product[3].images[0]}
+              alt="" />
           </div>
           <div className="img3">
-            <img src="../src/assets/images/adire/cotton adire1.png" alt="" />
+            <img 
+              src={product[15].images[0]}
+              alt="" />
+          </div>
+          <div className="">
+            <img 
+              src={product[25].images[0]}
+              alt="" />
+          </div>
+          <div>
+            <img 
+              src={product[5].images[0]}
+              alt="" />
           </div>
         </div>
       </section>
@@ -39,55 +56,59 @@ function Home() {
           Browse more fabrics
         </Link> */}
         <p>
-          Browse our collections and let the fabrics inspire your imagination.
-        </p>
+        Shop by category, and get quality
+         products delivered right to your doorstep.        </p>
         <div className="product-grid">
           <div className="grid-item grid1">
-            <b>Exclusive materials for female</b>
+            <b>{product[7].title}</b>
             <img
-              src="../src/assets/images/lace/exclusive naterial for women.png"
+                src={product[7].images[0]}
               alt=""
             />
           </div>
           <div className=" grid-item grid2">
-            <b>Quality printed crepe</b>
+            <b>{product[20].title}</b>
             <img
-              src="../src/assets/images/crepe/non transparent chiffon material.png"
+                src={product[20].images[0]}
               alt=""
             />
           </div>
           <div className=" grid-item grid3">
-            <b>Duches Fabrics</b>
-            <img src="../src/assets/images/dutches/velvet ads.jpg" alt="" />
+            <b>{product[9].title}</b>
+            <img 
+              src={product[9].images[0]} 
+            alt="" />
           </div>
           <div className="grid-item grid4">
-            <b>French crepe</b>
+            <b>{product[1].title}</b>
             <img
-              src="../src/assets/images/crepe/black french crepe.jpg"
+                src={product[1].images[0]}
               alt=""
             />
           </div>
           <div className="grid-item grid5">
-            <b>Real wax</b>
+            <b>{product[15].title}</b>
             <img
-              src="../src/assets/images/ankara/high quality real wax1.png"
+                src={product[15].images[0]}
               alt=""
             />
           </div>
           <div className="grid-item grid6">
-            <b>Embroided net</b>
+            <b>{product[16].title}</b>
             <img
-              src="../src/assets/images/lace/beautiful net embroidery1.png"
+               src={product[16].images[0]}
               alt=""
             />
           </div>
           <div className="grid-item grid7">
-            <b>Cord lace</b>
-            <img src="../src/assets/images/lace/luxury cord lace2.png" alt="" />
-          </div>
+            <b>{product[10].title}</b>
+            <img
+               src={product[10].images[0]}
+              alt=""
+            />          </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }
 
