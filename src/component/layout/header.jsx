@@ -3,15 +3,20 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { BsCart, BsCart2, BsHeart, BsMenuApp, BsMenuDown, BsTools } from "react-icons/bs";
 import { BiAccessibility, BiCarousel, BiCloset, BiHome, BiLogOut, BiMenu, BiSolidContact } from "react-icons/bi";
 import { useEffect, useState } from "react";
+import { collection, getFirestore, onSnapshot } from "firebase/firestore";
+import { db } from "../../config/firebase";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  // localStorage.setItem("menu",false)
   const [menu, setMenu] =useState(false)
   const location = useLocation();
-  
-    // Close sidebar whenever the path changes
+  const [loading, setLoading] = useState(true);
+  const [cart, setCart] = useState([]);
+  const [user, setUser] = useState(null);
+  const auth = getAuth();
+  const db = getFirestore();
+    //to Close sidebar whenever the path changes
     useEffect(() => {
       if (menu) {
         setMenu(false);
@@ -27,6 +32,35 @@ function Header() {
     navigate("/login", { replace: true });
     localStorage.setItem("validatn", JSON.stringify({ isLoggin: false }));
   };
+
+  //to get cart items from firebase
+  // const user = auth.currentUser;
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribeAuth = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+      setLoading(false)
+
+    });
+
+    return () => unsubscribeAuth();
+  }, []);
+  useEffect(() => {
+    if (!user) 
+    return;
+    setLoading(true)
+  const cartRef = collection(db, "users", user.uid, "cart");
+    const unsubscribe = onSnapshot(cartRef, (snapshot) => {
+      const items = snapshot.docs.map(docSnap => ({
+        id: docSnap.id,  
+        ...docSnap.data()
+      }));
+      setCart(items);
+    });
+    return () => unsubscribe();
+  }, [user]);
+// console.log(cartRef)
+console.log(cart)
   return (
     <>
     {window.innerWidth >= 768? <> <header>
@@ -72,14 +106,16 @@ function Header() {
           <li>
             <NavLink
               to={"/cart"}
+              className={"cart-icon"}
               style={({ isActive }) =>
                 isActive ? { color: "red" } : undefined
               }
             >
+              <span>{cart.length}</span>
               <BsCart2 className={"nav-item nav-icon"} />
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to={"/wishlist"}
               style={({ isActive }) =>
@@ -88,7 +124,7 @@ function Header() {
             >
               <BsHeart className={"nav-item nav-icon"} />
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink
               to={"/login"}
@@ -117,9 +153,10 @@ function Header() {
         />
         }
          <li>
-            <NavLink className={"mobile-cart"}
+            <NavLink className={"mobile-cart cart-icon"}
               to={"/cart"}
             >
+            <span>{cart.length}</span>
             <BsCart2 className={"menu-icon"} />
             </NavLink>
           </li>

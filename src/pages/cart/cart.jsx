@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BiHeart, BiMinus, BiPlus, BiUserMinus } from "react-icons/bi";
 import "./cart.css";
-import { BsApple, BsArrowRightShort, BsTrash3 } from "react-icons/bs";
+import { BsApple, BsArrowRightShort, BsTrash, BsTrash3 } from "react-icons/bs";
 import { product } from "../../assets/productImages";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -177,7 +177,7 @@ console.log(user)
                           <span>
                             <BiPlus onClick={() =>increaseQty(item)} className="increment-btn" />
                           </span>{" "}
-                            <BsTrash3 id="icon"
+                            <BsTrash id="icon"
                               product={product}
                               onClick={() => removeItem(item.id)}
                             />

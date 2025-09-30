@@ -35,8 +35,10 @@ nav {
 }
 
 .nav-icon {
-    margin-top: 2px;
-
+    width: 30px;
+    height: 30px;
+    color: rgb(117, 111, 111);
+    margin-top: -4px;
 }
 
 body {
@@ -71,8 +73,8 @@ li {
 }
 
 .cart {
-    width: 23px;
-    height: 23px;
+    width: 26px;
+    height: 26px;
     color: rgb(117, 111, 111);
 }
 
@@ -140,6 +142,26 @@ aside nav div {
     width: 100%;
 }
 
+.cart-icon {
+    position: relative;
+}
+
+.cart-icon span {
+    position: absolute;
+    color: white;
+    border-radius: 100%;
+    padding: 2px 5px;
+    background-color: red;
+    font-size: 12px;
+    left: -4px;
+    bottom: 8px;
+
+}
+
+.cart-icon span:hover {
+    background-color: rgb(223, 144, 144);
+    color: white;
+}
 
 @keyframes bounce-in-bottom {
     0% {
