@@ -11,14 +11,11 @@ function ProductDetails() {
   const details = product.filter((item) => {
     return item.id == id;
   });
-
   // console.log(params.id);
-
   // console.log(details);
   const image = details[0].images;
   // console.log(image);
   const productt = details[0]
-
   const relatedProduct =product.filter(product => product.category == details[0].category)
   return (
     <Fragment>

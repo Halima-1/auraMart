@@ -18,16 +18,14 @@
                 onClick={() => {
                   route(`/productDetails/${product.id}`);
                 }}
-              >
+              > 
                 <BiHeart
                   className="wish"
                   onClick={() => onAddToWishlist(product)}
                 />
-
                 <img src={product.images[0]} alt={product.title} />
               </div>
-
-              <div className="description">
+              <div className="description"> 
                 <b>{product.title}</b>
                 <p className="descr">{product.description.slice(0,30)+"..."}</p>
                   <p className="price">${product.price}</p>

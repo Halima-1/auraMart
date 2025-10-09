@@ -1,16 +1,21 @@
-# React + Vite
+# Auramart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Auramart is a stylish and modern e-commerce web application designed for a fun shopping experience.
+It allows users to browse, search, and shop from various product categories — including furniture, fragrances, groceries, and beauty accessories — all from one sleek interface.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+✨ Features
+🏷️ Product Categories: Browse items by type — Furniture, Fragrances, Groceries, and Beauty.
+🔍 Search Functionality: Quickly find what you’re looking for.
+🛒 Cart Management: Add, remove, and update products in your shopping cart.
+❤️ Favorites/Wishlist: Save your favorite items for later.
+👩‍💻 User Authentication: Secure login and signup using Firebase Authentication.
+💳 Payment Integration: Supports online payment checkout (e.g., Paystack, Stripe, or Flutterwave).
+📱 Responsive Design: Optimized for both desktop and mobile users.
+🌙 Modern UI: Simple, trendy, and easy to navigate.
+🧰 Tech Stack
+Frontend: React.js (with Vite  )
+Styling: CSS
+Authentication: Firebase Authentication
+Database : Firebase Firestore
+Payment Gateway: Paystack / Stripe / Flutterwave (optional)
+Deployment: Netlify 
