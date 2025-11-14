@@ -22,7 +22,9 @@ function Product() {
   // }
 
   try {
-    const cartItemRef = doc(db, "users", user.uid, "cart", product.id.toString());
+    user?    const cartItemRef = doc(db, "users", user.uid, "cart", product.id.toString());
+:    const cartItemRef = doc(db,"cart", product.id.toString());
+
     const cartSnap = await getDoc(cartItemRef);
     // console.error(cartItemRef);
 
