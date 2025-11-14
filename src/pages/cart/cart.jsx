@@ -140,9 +140,10 @@ console.log(user)
         </div>
         <div id="cartContainer">
           {loading? <div className="spinner"></div>
- :!user? <div className="empty-cart"><p>login to see your cart content</p>
- <Link to= "/login">Login page</Link>
- </div>:!cart || cart.length == 0 ? (
+//  :!user? <div className="empty-cart"><p>login to see your cart content</p>
+//  <Link to= "/login">Login page</Link>
+//  </div>
+ :!cart || cart.length == 0 ? (
             <div className="empty-cart">
               <img
                 style={{ width: 150, height: 150 }}

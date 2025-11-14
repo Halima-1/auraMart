@@ -16,10 +16,10 @@ function Product() {
   const auth = getAuth();
   const user = auth.currentUser;
 
-  if (!user) {
-    console.error("⚠️ User not logged in");
-    return;
-  }
+  // if (!user) {
+  //   console.error("⚠️ User not logged in");
+  //   return;
+  // }
 
   try {
     const cartItemRef = doc(db, "users", user.uid, "cart", product.id.toString());
