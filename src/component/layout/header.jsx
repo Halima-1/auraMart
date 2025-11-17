@@ -5,7 +5,7 @@ import { BiAccessibility, BiCarousel, BiCloset, BiHome, BiLogOut, BiMenu, BiSoli
 import { useEffect, useState } from "react";
 import { collection, getFirestore, onSnapshot } from "firebase/firestore";
 import { db } from "../../config/firebase";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 function Header() {
   const navigate = useNavigate();
@@ -46,8 +46,12 @@ function Header() {
     return () => unsubscribeAuth();
   }, []);
   useEffect(() => {
-    if (!user) 
-    return;
+    if (!user) {
+      setCart(JSON.parse(localStorage.getItem("guestCart")) || []
+      )
+      return;
+
+    }
     setLoading(true)
   const cartRef = collection(db, "users", user.uid, "cart");
     const unsubscribe = onSnapshot(cartRef, (snapshot) => {
@@ -61,6 +65,19 @@ function Header() {
   }, [user]);
 // console.log(cartRef)
 console.log(cart)
+// to log out
+const handleLogout = async () => {
+  // const auth = getAuth();
+  try {
+    await signOut(auth);
+    console.log(user)
+    console.log("User signed out successfully!");
+    window.location.href = "/login";
+    // localStorage.removeItem("oldUser")
+  } catch (error) {
+    console.error("Error signing out:", error);
+  }
+};
   return (
     <>
     {window.innerWidth >= 768? <> <header>
@@ -133,7 +150,7 @@ console.log(cart)
               }
             >
               <BiLogOut
-                onClick={() => logout()}
+                onClick={handleLogout}
                 className={"nav-item nav-icon"}
               />
             </NavLink>
@@ -208,12 +225,12 @@ console.log(cart)
           </li>
           <li>
           <BiLogOut
-                onClick={() => logout()}
+                onClick={handleLogout}
                 className={"aside-item nav-icon aside-icon"}
               />
             <NavLink
             className={"aside-item"}
-              to={"/login"}
+            onClick={handleLogout}
             >
              Logout
             </NavLink>

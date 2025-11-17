@@ -24,32 +24,29 @@ function Cart() {
   // const user = auth.currentUser;
   useEffect(() => {
     const auth = getAuth();
-    // ✅ Listen for auth state changes
     const unsubscribeAuth = onAuthStateChanged(auth, (firebaseUser) => {
       setUser(firebaseUser);
       setLoading(false)
-
     });
-
     return () => unsubscribeAuth();
   }, []);
   useEffect(() => {
-    if (!user) 
-    return;
+    if (!user) {
+      setCart(JSON.parse(localStorage.getItem("guestCart")))
+      return
+    }
+    
+    // return;
     setLoading(true)
-
-    const cartRef = collection(db, "users", user.uid, "cart");
-
+    const cartRef =collection(db, "users", user.uid, "cart");
     const unsubscribe = onSnapshot(cartRef, (snapshot) => {
       const items = snapshot.docs.map(docSnap => ({
-        id: docSnap.id,   // doc id from Firestore
+        id: docSnap.id,   
         ...docSnap.data()
       }));
       setCart(items);
       setLoading(false)
-
     });
-
     return () => unsubscribe();
   }, [user]);
 console.log(cart)
@@ -138,6 +135,7 @@ console.log(user)
           </p>
           <b>keep shopping</b>
         </div>
+        {!user? <span style={{color:"red"}}>Log in to edit or delete cart items</span>: null}
         <div id="cartContainer">
           {loading? <div className="spinner"></div>
 //  :!user? <div className="empty-cart"><p>login to see your cart content</p>

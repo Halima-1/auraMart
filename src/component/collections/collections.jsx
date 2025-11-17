@@ -8,7 +8,7 @@ import { BsStarFill } from 'react-icons/bs';
 function Collections() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const bestRated = product.sort((a,b) =>b.rating -a.rating).slice(0,6)
-    console.log(product)
+    // console.log(product)
     useEffect(() => {
         const interval = setInterval(() => {
           setCurrentIndex((prevIndex) =>
