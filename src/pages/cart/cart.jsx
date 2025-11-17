@@ -135,7 +135,7 @@ console.log(user)
           </p>
           <b>keep shopping</b>
         </div>
-        {!user? <span style={{color:"red"}}>Log in to edit or delete cart items</span>: null}
+        {!user? <span style={{color:"red"}}> <Link to={"/login"}>Log in</Link> to edit or delete cart items</span>: null}
         <div id="cartContainer">
           {loading? <div className="spinner"></div>
 //  :!user? <div className="empty-cart"><p>login to see your cart content</p>
